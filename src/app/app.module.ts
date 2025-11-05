@@ -22,7 +22,6 @@ import { CategoriesComponent } from './categories/categories.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    QuizComponent,
     ResultComponent,
     QuestionComponent,
     AnswerComponent,
@@ -34,7 +33,8 @@ import { CategoriesComponent } from './categories/categories.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuizComponent
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
