@@ -21,7 +21,6 @@ import { LoginComponent } from './auth/login/login.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    QuizComponent,
     ResultComponent,
     QuestionComponent,
     AnswerComponent,
@@ -32,7 +31,8 @@ import { LoginComponent } from './auth/login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuizComponent
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

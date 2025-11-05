@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { QuizService } from "../shared/services/quiz.service";
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { CategoriesService, Category } from '../../app/services/categories.service';
+
+interface Question {
+  id: number;
+  text: string;
+  categoryId: number;
+}
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss'],
-  standalone: false
+  styleUrls: ['./quiz.component.css']
 })
-export class QuizComponent implements OnInit {
-  isQuizFinished = this.quizService.isQuizFinished;
-  playerName = '';
+export class QuizComponent {
+  categoryId!: number;
+  category?: Category;
+  questions: Question[] = [];
+  base = 'http://localhost:3000';
 
   constructor(
-    private quizService: QuizService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private categories: CategoriesService
+  ) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.quizService.playerName = params['playerName'];
-      this.playerName = params['playerName'];
-    });
-  }
-
-  goToResultPage() {
-    this.router.navigate(['/result']);
+  ngOnInit() {
+    this.categoryId = Number(this.route.snapshot.paramMap.get('id'));
+    this.categories.getById(this.categoryId).subscribe(c => (this.category = c));
+    this.http
+      .get<Question[]>(`${this.base}/questions?categoryId=${this.categoryId}`)
+      .subscribe(q => (this.questions = q));
   }
 }

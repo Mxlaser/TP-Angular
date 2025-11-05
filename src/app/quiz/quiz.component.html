@@ -1,13 +1,14 @@
-<section>
-  <h2 class="quiz_title">C'est parti {{ playerName }}, soit prêt !</h2>
-  <section class="quiz_reset" *ngIf="isQuizFinished">
-    <h3>You can see your answers</h3>
-    <button class="btn--outline">Reset</button>
-  </section>
-  <section class="quiz_questions-list">
-    <app-question></app-question>
-  </section>
-  <div class="quiz_validation">
-    <button (click)="goToResultPage()" class="btn">Show score</button>
+<div class="quiz-container">
+  <h1 class="quiz-title">Quiz — {{ category?.name }}</h1>
+
+  <div *ngIf="!questions || questions.length === 0" class="no-questions">
+    Aucune question disponible pour cette catégorie.
   </div>
-</section>
+
+  <ul *ngIf="questions && questions.length > 0" class="question-list">
+    <li *ngFor="let q of questions; index as i" class="question-item">
+      <span class="q-number">{{ i + 1 }}.</span>
+      <span class="q-text">{{ q.text }}</span>
+    </li>
+  </ul>
+</div>
