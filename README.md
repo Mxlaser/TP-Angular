@@ -1,3 +1,6 @@
+Nikola ZIVKOVIC, Adam El Ounissi
+Pas eu le temps d'implementer le question réponse aux catégories
+
 # AngularQuiz
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
