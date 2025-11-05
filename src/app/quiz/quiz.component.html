@@ -1,14 +1,18 @@
 <div class="quiz-container">
   <h1 class="quiz-title">Quiz — {{ category?.name }}</h1>
 
-  <div *ngIf="!questions || questions.length === 0" class="no-questions">
+  <div *ngIf="!questions || questions.length === 0">
     Aucune question disponible pour cette catégorie.
   </div>
 
-  <ul *ngIf="questions && questions.length > 0" class="question-list">
-    <li *ngFor="let q of questions; index as i" class="question-item">
-      <span class="q-number">{{ i + 1 }}.</span>
-      <span class="q-text">{{ q.text }}</span>
-    </li>
-  </ul>
+  <div *ngIf="questions && questions.length > 0">
+    <div *ngFor="let q of questions; index as i" class="question">
+      <h3>Question {{ i + 1 }}</h3>
+      <p>{{ q.text }}</p>
+
+      <ul *ngIf="q.answers?.length">
+        <li *ngFor="let a of q.answers">{{ a.answerLabel }}</li>
+      </ul>
+    </div>
+  </div>
 </div>
