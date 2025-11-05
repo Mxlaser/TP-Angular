@@ -1,0 +1,10 @@
+.categories { max-width: 960px; margin: 24px auto; padding: 0 16px }
+h1 { margin: 0 0 16px }
+.toolbar { display: flex; gap: 8px; margin-bottom: 16px }
+.toolbar input { flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px }
+.toolbar button { padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px }
+.card { display: flex; align-items: center; justify-content: center; padding: 18px; border: 1px solid #eee; border-radius: 12px; background: #fff; cursor: pointer; transition: box-shadow .2s, transform .02s }
+.card:active { transform: translateY(1px) }
+.card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08) }
+.card__name { font-weight: 600 }

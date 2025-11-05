@@ -1,0 +1,12 @@
+<section class="categories">
+  <h1>Catégories</h1>
+  <div class="toolbar">
+    <input [(ngModel)]="filter" (ngModelChange)="onFilterChange()" placeholder="Rechercher une catégorie">
+    <button (click)="reset()">Réinitialiser</button>
+  </div>
+  <div class="grid">
+    <button class="card" *ngFor="let c of filtered" (click)="open(c)">
+      <span class="card__name">{{ c.name }}</span>
+    </button>
+  </div>
+</section>
