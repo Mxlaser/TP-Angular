@@ -1,5 +1,6 @@
 Nikola ZIVKOVIC, Adam El Ounissi
-Pas eu le temps d'implementer le question réponse aux catégories
+
+Pas eu le temps d'implementer le question réponse aux catégories, on a eu quelques soucis de conflits entre nos deux versions dû à un manque de communication au début 
 
 # AngularQuiz
 
