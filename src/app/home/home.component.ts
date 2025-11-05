@@ -24,9 +24,14 @@ export class HomeComponent implements OnInit {
     return this.playerName.length < 1;
   }
 
+  // navigateToQuiz() {
+  //   this.router.navigate(['/quiz', this.playerName]);
+  // }
   navigateToQuiz() {
-    this.router.navigate(['/quiz', this.playerName]);
+    localStorage.setItem('playerName', this.playerName);
+    this.router.navigate(['/categories']);
   }
+
 
   confirmPseudo() {
     this.isPlayerNameConfirmed = true;
